@@ -1,0 +1,11 @@
+stateDiagram-v2
+    [*] --> lobby
+    lobby --> choosing: Host starts with two or more players
+    choosing --> drawing: Word chosen or fifteen seconds expire
+    drawing --> reveal: Everyone guessed or timer expired
+    reveal --> choosing: Another scheduled artist remains
+    reveal --> finished: All turns complete
+    finished --> choosing: Host starts replay
+    drawing --> reveal: Artist leaves
+    choosing --> lobby: Too few active players
+    drawing --> lobby: Too few active players

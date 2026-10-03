@@ -1,0 +1,14 @@
+services:
+  doodle:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      GAME_PRIVATE_MODE: "true"
+      GAME_ACCESS_PASSWORD: "${GAME_ACCESS_PASSWORD:?Set a private access password with at least 12 characters}"
+      GAME_STORAGE_DIRECTORY: /app/data/rooms
+    volumes:
+      - doodle-data:/app/data
+    restart: unless-stopped
+volumes:
+  doodle-data:

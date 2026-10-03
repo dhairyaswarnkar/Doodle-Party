@@ -1,0 +1,6 @@
+flowchart TD
+    Browser["HTML/CSS/JS browser"] -->|"CSRF-protected HTTP actions"| Controller["Spring MVC controller"]
+    Browser <-->|"Same-origin WebSocket"| Socket["Spring WebSocket handler"]
+    Controller --> Service["Java room service and rules"]
+    Socket --> Service
+    Service --> Store["Atomic JSON room snapshots"]
